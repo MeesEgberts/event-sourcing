@@ -11,6 +11,6 @@ export class InvoiceEntity {
   @Column()
   amount: number;
 
-  @Column()
+  @Column({ default: false })
   paid: boolean;
 }
