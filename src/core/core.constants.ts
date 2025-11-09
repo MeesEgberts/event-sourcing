@@ -1,1 +1,1 @@
-export const EVENT_STORE_CONNECTION = `event_store_connection`;
+export const EVENT_STORE_CONNECTION = process.env.EVENT_STORE_CONNECTION_NAME!;

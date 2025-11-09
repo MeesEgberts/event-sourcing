@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  pg-event-store:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: ${EVENT_STORE_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${EVENT_STORE_USERNAME} -d ${EVENT_STORE_DATABASE}"]
+    ports:
+      - "${EVENT_STORE_PORT}:5432"
+
+  pg-read-db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: ${READ_DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${READ_DB_USERNAME} -d ${READ_DB_DATABASE}"]
+    ports:
+      - "${READ_DB_PORT}:5432"
