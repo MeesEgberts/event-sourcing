@@ -12,6 +12,7 @@ export class InvoiceFactory {
 
     invoice.customerId = customerId;
     invoice.amount = amount;
+    invoice.paid = false;
 
     // skip the handler because we don't want we've already assigned the properties.
     invoice.apply(new InvoiceCreatedEvent(id, customerId, amount), {

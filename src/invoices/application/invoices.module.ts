@@ -7,6 +7,7 @@ import { InvoiceFactory } from '../domain/factories/invoice.factory';
 import { InvoiceCreatedEventHandler } from './event-handlers/invoice-created.event-handler';
 import { FindInvoiceByIdQueryHandler } from './queries/handlers/find-invoice-by-id.query-handler';
 import { FindAllInvoicesQueryHandler } from './queries/handlers/find-all-invoices.query-handler';
+import { PayInvoiceCommandHandler } from './commands/handlers/pay-invoice.command';
 
 @Module({
   imports: [InvoiceInfrastructureModule],
@@ -19,6 +20,7 @@ import { FindAllInvoicesQueryHandler } from './queries/handlers/find-all-invoice
 
     // Command Handlers
     CreateInvoiceCommandHandler,
+    PayInvoiceCommandHandler,
 
     // Query Handlers
     FindInvoiceByIdQueryHandler,

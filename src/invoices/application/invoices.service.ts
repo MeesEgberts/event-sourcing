@@ -4,6 +4,7 @@ import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { CreateInvoiceCommand } from './commands/impl/create-invoice.command';
 import { FindInvoiceByIdQuery } from './queries/impl/find-invoice-by-id.query';
 import { FindAllInvoicesQuery } from './queries/impl/find-all-invoices.query';
+import { PayInvoiceCommand } from './commands/impl/pay-invoice.command';
 
 @Injectable()
 export class InvoicesService {
@@ -24,5 +25,9 @@ export class InvoicesService {
 
   findOne(id: string) {
     return this.queryBus.execute(new FindInvoiceByIdQuery(id));
+  }
+
+  pay(id: string) {
+    return this.commandBus.execute(new PayInvoiceCommand(id));
   }
 }

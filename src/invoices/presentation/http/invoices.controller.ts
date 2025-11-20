@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { InvoicesService } from '../../application/invoices.service';
 import { CreateInvoiceDto } from './dto/create-invoice.dto';
 import {
@@ -31,5 +31,12 @@ export class InvoicesController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.invoicesService.findOne(id);
+  }
+
+  @ApiOperation({ operationId: 'pay_invoice' })
+  @ApiOkResponse({ type: InvoiceReadModel })
+  @Patch(':id/pay')
+  pay(@Param('id') id: string) {
+    return this.invoicesService.pay(id);
   }
 }
