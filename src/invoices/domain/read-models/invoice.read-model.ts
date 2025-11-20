@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateInvoiceDto {
+export class InvoiceReadModel {
   @ApiProperty({ example: 'cus_123456789' })
   readonly customerId: string;
 
