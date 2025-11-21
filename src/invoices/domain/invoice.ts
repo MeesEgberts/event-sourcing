@@ -18,6 +18,7 @@ export class Invoice extends VersionedAggregateRoot {
   [`on${InvoiceCreatedEvent.name}`](event: InvoiceCreatedEvent) {
     this.customerId = event.customerId;
     this.amount = event.amount;
+    this.paid = false;
   }
 
   [`on${InvoicePaidEvent.name}`](event: InvoicePaidEvent) {
